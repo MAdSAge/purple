@@ -16,8 +16,8 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		URL in = getClass().getClassLoader().getResource("resorces/dataBases/b2e2n2.db");
-		System.out.println(in);
+		URL in = getClass().getResource("b2e2n2.db");
+//		System.out.println(in);
 		
 		
 		c = DriverManager.getConnection("jdbc:sqlite:"+in);
@@ -44,7 +44,7 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		URL in = getClass().getResource("resorces/dataBases/b2e2n2.db");
+		URL in = getClass().getResource("b2e2n2.db");
 		c = DriverManager.getConnection("jdbc:sqlite:"+in);
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
