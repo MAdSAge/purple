@@ -1,0 +1,14 @@
+package practest;
+
+import javax.swing.JPanel;
+
+public class Mcqs_panel extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public Mcqs_panel() {
+
+	}
+
+}

@@ -1,0 +1,106 @@
+package practest;
+
+import javax.swing.JPanel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JList;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import javax.swing.JScrollPane;
+
+public class ChapterFind extends JPanel {
+	
+	
+	JButton btnNewButton;
+	JList<String> list1;
+
+	public ChapterFind(String subject) throws ClassNotFoundException, SQLException {
+		setBackground(SystemColor.window);
+		
+		QueryClass sopia = new QueryClass();
+		ArrayList<String> chapters = sopia.C_query(subject);
+		
+		
+		JLabel lblNewLabel_2 = new JLabel("Choose A Chapter");
+		lblNewLabel_2.setFont(new Font("Kristen ITC", Font.BOLD, 20));
+		
+		btnNewButton = new JButton("Go back...");
+		
+		
+		btnNewButton.setBackground(SystemColor.window);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setIcon(new ImageIcon(ChapterFind.class.getResource("/practest/resorces/images/3ice.jpeg")));
+			
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setIcon(new ImageIcon(ChapterFind.class.getResource("/practest/resorces/images/3ice.jpeg")));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
+		
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(lblNewLabel_2, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
+						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnNewButton)
+							.addGap(101)
+							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(114)
+									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 102, Short.MAX_VALUE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
+									.addContainerGap())))
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGap(152)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 288, Short.MAX_VALUE))))
+		);
+		
+		list1 = new JList(chapters.toArray());
+		scrollPane.setViewportView(list1);
+		
+				list1.setFont(new Font("Kristen ITC", Font.ITALIC, 17));
+				list1.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+		setLayout(groupLayout);
+	}
+}

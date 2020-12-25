@@ -1,0 +1,14 @@
+package practest;
+
+import javax.swing.JPanel;
+
+public class ChooeChapter extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public ChooeChapter() {
+
+	}
+
+}

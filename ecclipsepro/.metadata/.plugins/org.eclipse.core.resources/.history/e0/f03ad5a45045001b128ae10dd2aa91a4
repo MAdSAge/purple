@@ -1,0 +1,74 @@
+package practest;
+
+
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+
+class ImagePC {	
+	
+	
+	
+	public static void main(String[] args) throws IOException {
+		System.out.println("hello thiis is test");
+		ImagePC lol = new ImagePC();
+		lol.image_link_parser();
+	}
+	
+	
+	
+	void image_link_parser() throws IOException {
+		String url=null;
+		
+		Document doc = Jsoup.connect("https://en.wikipedia.org/").get();
+//		log(doc.title());
+		Elements newsHeadlines = doc.select("#mp-itn b a");
+		for (Element headline : newsHeadlines) {
+		    System.out.println(headline.attr("title").toString());
+		}
+		
+//		return url;
+		
+	}
+	
+	
+// 	BufferedImage getResizedImage(String urlb,int bound_width,int bound_height ) throws IOException {
+//
+//		
+//		URL url = new URL(urlb);
+//		BufferedImage p_image = ImageIO.read(url);
+//		
+//	    int original_width = p_image.getWidth();
+//	    int original_height = p_image.getHeight();
+//	    
+//	    int new_width = original_width;
+//	    int new_height = original_height;
+//
+//	    if (original_width > bound_width) {	        
+//	        new_width = bound_width;	       
+//	        new_height = (new_width * original_height) / original_width;
+//	    }	 
+//	    if (new_height > bound_height) {	       
+//	        new_height = bound_height;	        
+//	        new_width = (new_height * original_width) / original_height;
+//	    }
+//	    
+//	    BufferedImage outputImage = new BufferedImage(new_width,new_height, p_image.getType());
+//	    
+//	    Graphics2D g2d = outputImage.createGraphics();
+//        g2d.drawImage(p_image, 0, 0, new_width, new_height, null);
+//        g2d.dispose();
+//        
+//	    return outputImage;
+//	}
+	
+	
+}

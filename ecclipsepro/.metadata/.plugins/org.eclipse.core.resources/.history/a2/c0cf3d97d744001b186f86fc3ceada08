@@ -1,0 +1,47 @@
+package practest;
+
+import javax.swing.JPanel;
+
+import java.io.IOException;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JEditorPane;
+
+public class McqsPane extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	
+	JEditorPane editorPane;
+	
+	public McqsPane() {
+		
+		editorPane = new JEditorPane();
+		try {
+			editorPane.setPage("https://stackoverflow.com/questions/10601676/display-a-webpage-inside-a-swing-application");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(59)
+					.addComponent(editorPane, GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
+					.addGap(62))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(44)
+					.addComponent(editorPane, GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)
+					.addGap(45))
+		);
+		setLayout(groupLayout);
+
+	}
+}

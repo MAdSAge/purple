@@ -1,0 +1,12 @@
+package practest;
+
+class testbugs {
+
+	public static void main(String[] args) {
+		form1 in12 = new form1();
+		
+		
+
+	}
+
+}

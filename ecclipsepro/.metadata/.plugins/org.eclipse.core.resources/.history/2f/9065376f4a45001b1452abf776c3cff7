@@ -1,0 +1,132 @@
+package practest;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import java.awt.Toolkit;
+
+
+
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Color;
+import javax.swing.JScrollPane;
+import javax.swing.JCheckBox;
+import java.awt.SystemColor;
+
+public class TestImage extends JFrame {
+
+	private JPanel contentPane;
+	JLabel lblNewLabel_1;
+
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TestImage frame = new TestImage();
+					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				    frame.setSize(screenSize.width, screenSize.height);
+					frame.setVisible(true);
+					frame.lblNewLabel_1.setText("<table style=\"width:100%\">\r\n"
+							+ "  <tr>\r\n"
+							+ "    <th>Firstname</th>\r\n"
+							+ "    <th>Lastname</th>\r\n"
+							+ "    <th>Age</th>\r\n"
+							+ "  </tr>\r\n"
+							+ "  <tr>\r\n"
+							+ "    <td>Jill</td>\r\n"
+							+ "    <td>Smith</td>\r\n"
+							+ "    <td>50</td>\r\n"
+							+ "  </tr>\r\n"
+							+ "  <tr>\r\n"
+							+ "    <td>Eve</td>\r\n"
+							+ "    <td>Jackson</td>\r\n"
+							+ "    <td>94</td>\r\n"
+							+ "  </tr>\r\n"
+							+ "</table>");
+							
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	public TestImage() throws IOException {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		JPanel quesion_panel = new JPanel();
+		quesion_panel.setBackground(SystemColor.window);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+					.addGap(10))
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addComponent(quesion_panel, GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addComponent(quesion_panel, GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 185, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		
+		lblNewLabel_1 = new JLabel("New label");
+		GroupLayout gl_quesion_panel = new GroupLayout(quesion_panel);
+		gl_quesion_panel.setHorizontalGroup(
+			gl_quesion_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_quesion_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+					.addGap(57))
+		);
+		gl_quesion_panel.setVerticalGroup(
+			gl_quesion_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_quesion_panel.createSequentialGroup()
+					.addGap(5)
+					.addGroup(gl_quesion_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblNewLabel)
+						.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE))
+					.addGap(110))
+		);
+		quesion_panel.setLayout(gl_quesion_panel);
+		
+		contentPane.setLayout(gl_contentPane);
+	
+		
+		
+	}
+}

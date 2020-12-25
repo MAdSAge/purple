@@ -1,0 +1,95 @@
+package practest;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import java.awt.Toolkit;
+
+
+
+import javax.swing.JLabel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+public class TestImage extends JFrame {
+
+	private JPanel contentPane;
+
+	JLabel imagelables,textlable;
+
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					TestImage frame = new TestImage();
+					Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+				    frame.setSize(screenSize.width, screenSize.height);
+					frame.setVisible(true);
+					
+					String b="https://th.bing.com/th/id/OIP.M9AsZ7Sm6Qq-LXpY92Tt2AHaEK?pid=Api&rs=1";
+				
+					
+					ImagePC sage = new ImagePC();
+					BufferedImage hox = sage.getResizedImage(b,1100,1880);
+					frame.imagelables.setIcon(new ImageIcon(hox));					
+							
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	public TestImage() throws IOException {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		imagelables = new JLabel("New label");
+		textlable = new JLabel("New label");
+		
+		
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(textlable, GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE)
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addGap(281)
+							.addComponent(imagelables, GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE))))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addComponent(imagelables, GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textlable, GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		
+		contentPane.setLayout(gl_contentPane);
+	
+		
+		
+	}
+}

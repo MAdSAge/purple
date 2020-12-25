@@ -1,0 +1,20 @@
+package practest;
+
+
+import java.sql.*;
+
+class QueryClass {
+
+	public static void main( String args[] ) throws ClassNotFoundException, SQLException {
+		try {
+	         Class.forName("org.sqlite.JDBC");
+	         c = DriverManager.getConnection("jdbc:sqlite:b2e2n2.db");
+	      } catch ( Exception e ) {
+	         System.err.println( e.getClass().getName() + ": " + e.getMessage() );
+	         System.exit(0);
+	      }
+	      System.out.println("Opened database successfully");
+		
+	}
+}
+

@@ -1,0 +1,96 @@
+package practest;
+
+import javax.swing.JPanel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JList;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.SwingConstants;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+public class McqsFindChapter extends JPanel {
+	
+	
+	JButton btnNewButton;
+	JList<String> list1;
+
+	public McqsFindChapter(String subject) {
+		setBackground(SystemColor.window);
+		
+		String[] chapters= {"anatomy1","anatomy2","anatomy3","anatomy4","anatomy5","anatomy6","anatomy7","anatomy8","anatomy9","anatomy10","anatomy11","anatomy1","anatomy2","anatomy3","anatomy4","anatomy5","anatomy6","anatomy7","anatomy8","anatomy9","anatomy10","anatomy11","anatomy1","anatomy2","anatomy3","anatomy4","anatomy5","anatomy6","anatomy7","anatomy8","anatomy9","anatomy10","anatomy11","anatomy1","anatomy2","anatomy3","anatomy4","anatomy5","anatomy6","anatomy7","anatomy8","anatomy9","anatomy10","anatomy11","anatomy1","anatomy2","anatomy3","anatomy4","anatomy5","anatomy6","anatomy7","anatomy8","anatomy9","anatomy10","anatomy11"};
+		
+		list1 = new JList(chapters);
+		list1.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent ce) {
+				
+				
+			}
+		});
+		list1.setFont(new Font("Kristen ITC", Font.ITALIC, 17));
+		list1.setLayoutOrientation(JList.HORIZONTAL_WRAP);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\docab\\Downloads\\3ice.jpeg"));
+		
+		JLabel lblNewLabel_2 = new JLabel("Choose A Chapter");
+		lblNewLabel_2.setFont(new Font("Kristen ITC", Font.BOLD, 20));
+		
+		btnNewButton = new JButton("Go back...");
+		btnNewButton.setBackground(SystemColor.window);
+		
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setVerticalAlignment(SwingConstants.TOP);
+		lblNewLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\docab\\Downloads\\3ice.jpeg"));
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
+						.addComponent(list)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(btnNewButton)
+							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 270, GroupLayout.PREFERRED_SIZE)))
+					.addGap(10)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_1, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 305, GroupLayout.PREFERRED_SIZE)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(33)
+							.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(list, GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(73)
+									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))))
+					.addGap(0))
+		);
+		setLayout(groupLayout);
+	}
+}

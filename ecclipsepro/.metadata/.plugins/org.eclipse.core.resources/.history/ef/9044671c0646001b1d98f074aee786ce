@@ -1,0 +1,34 @@
+package practest;
+
+
+
+import java.net.URL;
+import java.sql.*;
+
+class QueryClass {
+
+	public static void main( String args[] ) throws ClassNotFoundException, SQLException {
+		
+		
+		Connection c = null;
+		Statement stmt = null;
+		Class.forName("org.sqlite.JDBC");
+		
+		
+		
+	    c = DriverManager.getConnection("jdbc:sqlite:src/practest/resorces/dataBases/b2e2n2.db");
+	   
+	    c.setAutoCommit(false);
+	    stmt = c.createStatement();
+	    ResultSet rs = stmt.executeQuery( "select * from proper limit 10;" );
+	    while ( rs.next() ) {
+	          String  id = rs.getNString(0);
+	          System.out.println(id);        
+	       }
+	       rs.close();
+	       stmt.close();
+	       c.close();
+		
+	}
+}
+
