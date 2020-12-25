@@ -58,9 +58,13 @@
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_SAVE" value="false"/>
 		<item key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION" value="C:\sage\java\New folder\ecclipsepro.xml"/>
 		<item key="FatJarPackageWizardPage.LIBRARY_HANDLING" value="2"/>
-		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="form1 - practest"/>
-		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\docab\Downloads\Telegram Desktop\tets3.jar"/>
+		<item key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME" value="mcqs - practest"/>
+		<item key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION" value="C:\Users\docab\Downloads\Telegram Desktop\tets34102.jar"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets34102.jar"/>
+			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets3412.jar"/>
+			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets341.jar"/>
+			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets34.jar"/>
 			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets3.jar"/>
 			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets1.jar"/>
 			<item value="C:\Users\docab\Downloads\Telegram Desktop\tets.jar"/>

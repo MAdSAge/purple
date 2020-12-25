@@ -1,5 +1,6 @@
 package practest;
 
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -15,7 +16,11 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		c = DriverManager.getConnection("jdbc:sqlite:src/practest/resorces/dataBases/b2e2n2.db");
+		URL in = getClass().getClassLoader().getResource("resorces/dataBases/b2e2n2.db");
+		System.out.println(in);
+		
+		
+		c = DriverManager.getConnection("jdbc:sqlite:"+in);
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
 		
@@ -39,7 +44,8 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		c = DriverManager.getConnection("jdbc:sqlite:src/practest/resorces/dataBases/b2e2n2.db");
+		URL in = getClass().getResource("resorces/dataBases/b2e2n2.db");
+		c = DriverManager.getConnection("jdbc:sqlite:"+in);
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
 		
@@ -64,8 +70,8 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		c = DriverManager.getConnection("jdbc:sqlite:src/practest/resorces/dataBases/b2e2n2.db");
-
+		URL in = QueryClass.class.getResource("resorces/dataBases/b2e2n2.db");
+		c = DriverManager.getConnection("jdbc:sqlite:"+in);
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
 		String d = chapter_name;
