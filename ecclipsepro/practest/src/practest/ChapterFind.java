@@ -14,8 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.ImageIcon;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.SystemColor;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.SQLException;
@@ -55,6 +59,8 @@ public class ChapterFind extends JPanel {
 		lblNewLabel.setIcon(new ImageIcon(ChapterFind.class.getResource("/practest/resorces/images/3ice.jpeg")));
 		
 		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(null);
+		
 		
 		
 		GroupLayout groupLayout = new GroupLayout(this);
@@ -88,8 +94,8 @@ public class ChapterFind extends JPanel {
 						.addGroup(groupLayout.createSequentialGroup()
 							.addComponent(lblNewLabel_2, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
 							.addGap(11)
-							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 274, Short.MAX_VALUE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+							.addGap(18)
 							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
 								.addGroup(groupLayout.createSequentialGroup()
 									.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
@@ -98,7 +104,13 @@ public class ChapterFind extends JPanel {
 		);
 		
 		list1 = new JList(chapters.toArray());
+		list1.setBorder(null);
 		scrollPane.setViewportView(list1);
+		scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
+		Border border = new LineBorder(Color.ORANGE, 0, true);
+		scrollPane.setBorder(border);
+		
+	
 		
 				list1.setFont(new Font("Kristen ITC", Font.ITALIC, 14));
 		setLayout(groupLayout);

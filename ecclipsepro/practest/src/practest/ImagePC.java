@@ -16,11 +16,6 @@ import org.jsoup.select.Elements;
 
 
 class ImagePC {	
-	
-
-	
-	
-	
 	ArrayList<String> image_link_parser(String url) throws IOException {
 		
 		ArrayList<String> top= new ArrayList<String>();
