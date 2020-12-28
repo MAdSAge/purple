@@ -10,23 +10,18 @@ import java.util.ArrayList;
 
 class QueryClass {
 	
-	public ArrayList<String> C_query(String subj ) throws ClassNotFoundException, SQLException{
+	ArrayList<String> C_query(String subj ) throws ClassNotFoundException, SQLException{
 		ArrayList<String> ipper2 = new ArrayList<String>();
 
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		URL in = getClass().getResource("b2e2n2.db");
-//		System.out.println(in);
-		
-		
-		c = DriverManager.getConnection("jdbc:sqlite:"+in);
+		URL in = getClass().getResource("resorces/dataBases/b2e2n2.db");		
+		c = DriverManager.getConnection("jdbc:sqlite::resource:"+in);
 		c.setAutoCommit(false);
-		stmt = c.createStatement();
-		
+		stmt = c.createStatement();		
 		ResultSet rs = stmt.executeQuery("select distinct field7 from proper where field8='"+subj+"'");
 		while (rs.next()) {
-
 			String subject = rs.getString(1);
 			ipper2.add(subject);
 		}
@@ -44,8 +39,8 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		URL in = getClass().getResource("b2e2n2.db");
-		c = DriverManager.getConnection("jdbc:sqlite:"+in);
+		URL in = getClass().getResource("resorces/dataBases/b2e2n2.db");		
+		c = DriverManager.getConnection("jdbc:sqlite::resource:"+in);
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
 		
@@ -70,8 +65,8 @@ class QueryClass {
 		Connection c = null;
 		Statement stmt = null;
 		Class.forName("org.sqlite.JDBC");
-		URL in = QueryClass.class.getResource("resorces/dataBases/b2e2n2.db");
-		c = DriverManager.getConnection("jdbc:sqlite:"+in);
+		URL in = getClass().getResource("resorces/dataBases/b2e2n2.db");		
+		c = DriverManager.getConnection("jdbc:sqlite::resource:"+in);
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
 		String d = chapter_name;

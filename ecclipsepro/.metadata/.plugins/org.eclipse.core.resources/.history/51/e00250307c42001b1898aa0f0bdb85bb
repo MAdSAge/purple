@@ -1,6 +1,0 @@
-module selection_stage {
-	
-	public static void main(String[] args) {
-		
-	}
-}

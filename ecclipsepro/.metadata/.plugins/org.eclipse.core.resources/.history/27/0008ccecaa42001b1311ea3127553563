@@ -1,9 +1,0 @@
-package practest;
-
-import javax.swing.JFrame;
-
-public class mcq extends JFrame {
-	
-
-	}
-

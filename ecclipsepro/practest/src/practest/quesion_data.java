@@ -83,6 +83,10 @@ class quesion_data {
 	}
 
 	public String getImages() {
+		
+		
+		
+		
 		return images;
 	}
 

@@ -1,0 +1,23 @@
+package practest;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+class soup_fun {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		
+		QueryClass mcqs = new QueryClass();
+		ArrayList<quesion_data> qestion = mcqs.Q_query("Anterior Abdominal Wall (review)");
+		
+		for(quesion_data i : qestion) {
+			
+			if(i.getImages() != "null") {
+				System.out.println(i.getImages());
+			}
+		} 
+
+	}
+
+}

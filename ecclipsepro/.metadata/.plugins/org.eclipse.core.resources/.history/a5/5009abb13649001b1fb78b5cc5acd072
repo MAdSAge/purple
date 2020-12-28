@@ -1,0 +1,53 @@
+package practest;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+class soup_fun {
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		
+		QueryClass mcqs = new QueryClass();
+		ArrayList<quesion_data> qestion = mcqs.Q_query("Anterior Abdominal Wall (review)");
+		for (quesion_data i:qestion) {
+			String exp = i.getExplant();
+			
+			System.out.println(exp);
+			
+			Document dot = Jsoup.parse(exp);  
+			Elements sot = dot.select("img");
+			for(Element i1:sot) {
+				
+				String mig = i1.attr("src");
+				System.out.println(mig);
+			}
+			
+		}
+
+	            
+			
+		
+
+	}
+	
+	
+	
+	String Q_mage(quesion_data a) {
+		
+		String q_mage = a.getImages();
+		Document dot = Jsoup.parse(q_mage);  
+		Element sot = dot.select("img").first();
+		String mig = sot.attr("src");		
+		
+		return mig;
+		
+		
+	}
+
+}
