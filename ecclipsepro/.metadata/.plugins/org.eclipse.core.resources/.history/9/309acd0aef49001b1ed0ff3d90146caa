@@ -2,7 +2,6 @@ package practest;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -15,7 +14,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.Icon;
 import javax.swing.JLabel;
 import java.awt.SystemColor;
-import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.UIManager;
 import javax.swing.JTextPane;
@@ -47,49 +45,44 @@ public class Solve_mcqs extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					
-//01.------------------Instantiating the objects-------------------------------------------------//
+//------------------Instantiating the objects-------------------------------------------------//
 					Solve_mcqs frame = new Solve_mcqs();
 					soup_fun fun = new soup_fun();
 					QueryClass list = new QueryClass();
-//02.------------------Adjusting the frame-------------------------------------------------------//
-					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-					frame.setVisible(true);
-//03.------------------Getting the list from the data base---------------------------------------//
+//------------------Getting the list from the data base---------------------------------------//
 					ArrayList<quesion_data> questions = list.Q_query("Abdominal cavity and Peritoneum (review)");
-					quesion_data question = questions.get(4);					
-//04.------------------Setting the text into the labels------------------------------------------//
+					quesion_data question = questions.get(3);					
+					frame.setVisible(true);
+//------------------Setting the text into the labels------------------------------------------//
 					frame.question.setText(question.getQuestion());
 					frame.option_A.setText(question.getOptionA());
 					frame.option_b.setText(question.getOptionB());
 					frame.option_C.setText(question.getOptionC());
 					frame.option_D.setText(question.getOptionD());
-//05.--------------------adding border to the question and MCQ's-----------------------------------//
+//--------------------setting image to the question-------------------------------------------//
+					//1-get the URL for loading image
+					String  link = fun.Q_mage(question);
+					System.out.println(link);
+					if(link != null) {
+					//2-getting image from fly
+					URL url = new URL("link");
+					BufferedImage image = ImageIO.read(url);
+					//3-setting image into the label
+					frame.lblNewLabel.setIcon((Icon) image);
+					}
+					
+					
+		
+					
+//--------------------adding boder to the question and mcqs-----------------------------------//
 					Border border = BorderFactory.createLineBorder(Color.BLACK);
 					frame.question.setBorder(border);
 					frame.option_A.setBorder(border);
 					frame.option_b.setBorder(border);
 					frame.option_C.setBorder(border);
 					frame.option_D.setBorder(border);
-					frame.lblNewLabel.setBorder(border);			
-//06.--------------------setting image to the question-------------------------------------------//
-					//1-get the URL for loading image
-					String  link = fun.Q_mage(question);
-					if(link != null) {
-					//2-getting image from fly
-					URL url = new URL(link);
-					BufferedImage image = ImageIO.read(url);
-					//3-Adjusting the image size
-					Image dimg = image.getScaledInstance(frame.lblNewLabel.getWidth(), frame.lblNewLabel.getHeight(),Image.SCALE_SMOOTH);
-					//4-setting image into the label
-					frame.lblNewLabel.setIcon(new javax.swing.ImageIcon(dimg));					
-					}else {
-						frame.lblNewLabel.setVisible(false);
-					}
-					
-		
-					
-
+					frame.lblNewLabel.setBorder(border);
+			
 					
 					
 					
@@ -120,8 +113,21 @@ public class Solve_mcqs extends JFrame {
 		option_b = new JLabel("optiob_b");
 		option_C = new JLabel("option_c");
 		option_D = new JLabel("option_d");
-		lblNewLabel = new JLabel("");		
-		question.setBackground(SystemColor.activeCaption);		
+		lblNewLabel = new JLabel("New label");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		question.setBackground(SystemColor.activeCaption);
+		
+		
+		
 		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(

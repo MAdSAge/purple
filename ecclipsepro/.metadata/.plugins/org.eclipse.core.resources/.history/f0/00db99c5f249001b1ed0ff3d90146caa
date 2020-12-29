@@ -57,7 +57,7 @@ public class Solve_mcqs extends JFrame {
 					frame.setVisible(true);
 //03.------------------Getting the list from the data base---------------------------------------//
 					ArrayList<quesion_data> questions = list.Q_query("Abdominal cavity and Peritoneum (review)");
-					quesion_data question = questions.get(4);					
+					quesion_data question = questions.get(3);					
 //04.------------------Setting the text into the labels------------------------------------------//
 					frame.question.setText(question.getQuestion());
 					frame.option_A.setText(question.getOptionA());
@@ -120,8 +120,21 @@ public class Solve_mcqs extends JFrame {
 		option_b = new JLabel("optiob_b");
 		option_C = new JLabel("option_c");
 		option_D = new JLabel("option_d");
-		lblNewLabel = new JLabel("");		
-		question.setBackground(SystemColor.activeCaption);		
+		lblNewLabel = new JLabel("New label");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		question.setBackground(SystemColor.activeCaption);
+		
+		
+		
 		JScrollPane scrollPane = new JScrollPane();
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(

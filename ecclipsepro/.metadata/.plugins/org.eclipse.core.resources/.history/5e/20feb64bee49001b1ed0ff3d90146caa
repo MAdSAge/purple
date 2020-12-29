@@ -10,14 +10,11 @@ class soup_fun {
 	
 	String Q_mage(quesion_data a) {
 		
-		String mig =null;
-		
 		String q_mage = a.getImages();
 		Document dot = Jsoup.parse(q_mage);  
 		Element sot = dot.select("img").first();
-		if(sot != null) {
-		mig = sot.attr("src");		
-		}
+		String mig = sot.attr("src");		
+		
 		return mig;		
 	}
 	
