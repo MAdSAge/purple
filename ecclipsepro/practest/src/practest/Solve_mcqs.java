@@ -1,9 +1,8 @@
 package practest;
 
-import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import java.awt.Image;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -12,41 +11,52 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.Icon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.SystemColor;
-import java.awt.Toolkit;
 import java.awt.Color;
-import javax.swing.UIManager;
-import javax.swing.JTextPane;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JEditorPane;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
-import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.ScrollPaneConstants;
+import javax.swing.JTextField;
+import javax.swing.JTextArea;
+import java.awt.Font;
 
 public class Solve_mcqs extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private JLabel question;
+	private JTextArea question;
 	private JLabel option_A;
 	private JLabel option_b;
 	private JLabel option_C;
 	private JLabel option_D;
 	private JLabel lblNewLabel;
+	private JButton NEXT;
+	private JButton PREVIOUS;
+	private int i=0;
+
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable{
+		
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					
 					
 //01.------------------Instantiating the objects-------------------------------------------------//
 					Solve_mcqs frame = new Solve_mcqs();
@@ -54,16 +64,56 @@ public class Solve_mcqs extends JFrame {
 					QueryClass list = new QueryClass();
 //02.------------------Adjusting the frame-------------------------------------------------------//
 					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
-					frame.setVisible(true);
+					frame.setVisible(true);					
+					
 //03.------------------Getting the list from the data base---------------------------------------//
 					ArrayList<quesion_data> questions = list.Q_query("Abdominal cavity and Peritoneum (review)");
-					quesion_data question = questions.get(4);					
-//04.------------------Setting the text into the labels------------------------------------------//
-					frame.question.setText(question.getQuestion());
-					frame.option_A.setText(question.getOptionA());
-					frame.option_b.setText(question.getOptionB());
-					frame.option_C.setText(question.getOptionC());
-					frame.option_D.setText(question.getOptionD());
+					frame.change_question(frame, questions.get(frame.i), fun);
+					
+//04.------------------setting the NEXT button event to change the question----------------------//
+					
+					frame.NEXT.addActionListener(new ActionListener() {
+												
+						public void actionPerformed(ActionEvent e) {							
+							System.out.println("well it happend");
+							int len = questions.size();
+							System.out.println(len);
+							try {
+							quesion_data question = questions.get(frame.i);							
+							
+								
+								frame.change_question(frame, question, fun);
+								frame.i=frame.i+1;	
+								
+							} catch (Throwable e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+								JOptionPane.showMessageDialog(frame, "that was the last question");
+							}
+													
+						}
+						
+					});
+//05.------------------Setting the PREVIOUS BUTTON event to change the question-------------------//
+					
+					frame.PREVIOUS.addActionListener(new ActionListener() {
+						
+						public void actionPerformed(ActionEvent e) {
+							System.out.println("well it happend");
+							quesion_data question = questions.get(frame.i);							
+							try {
+								frame.change_question(frame, question, fun);								
+							} catch (Throwable e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}							
+							frame.i=frame.i-1;
+						}
+					});
+
+					
+										
+
 //05.--------------------adding border to the question and MCQ's-----------------------------------//
 					Border border = BorderFactory.createLineBorder(Color.BLACK);
 					frame.question.setBorder(border);
@@ -71,34 +121,56 @@ public class Solve_mcqs extends JFrame {
 					frame.option_b.setBorder(border);
 					frame.option_C.setBorder(border);
 					frame.option_D.setBorder(border);
-					frame.lblNewLabel.setBorder(border);			
-//06.--------------------setting image to the question-------------------------------------------//
-					//1-get the URL for loading image
-					String  link = fun.Q_mage(question);
-					if(link != null) {
-					//2-getting image from fly
-					URL url = new URL(link);
-					BufferedImage image = ImageIO.read(url);
-					//3-Adjusting the image size
-					Image dimg = image.getScaledInstance(frame.lblNewLabel.getWidth(), frame.lblNewLabel.getHeight(),Image.SCALE_SMOOTH);
-					//4-setting image into the label
-					frame.lblNewLabel.setIcon(new javax.swing.ImageIcon(dimg));					
-					}else {
-						frame.lblNewLabel.setVisible(false);
-					}
-					
-		
-					
-
-					
-					
+//					frame.lblNewLabel.setBorder(border);			
 					
 				} catch (Exception e) {
 					e.printStackTrace();
+				} catch (Throwable e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
 				}
 			}
 		});
 	}
+
+
+//04.0-------------------changing question----------------------------------------------------------//	
+	void change_question( Solve_mcqs frame,quesion_data question,soup_fun fun) throws Throwable {
+		
+		System.out.println("function inoked succes"+frame.i);
+		
+		
+		
+		
+//04.1.------------------Setting the text into the labels------------------------------------------//
+		
+		frame.question.setText(question.getQuestion());
+		frame.option_A.setText(question.getOptionA());
+		frame.option_b.setText(question.getOptionB());
+		frame.option_C.setText(question.getOptionC());
+		frame.option_D.setText(question.getOptionD());
+		
+//04.2.--------------------setting image to the question-------------------------------------------//
+		//1-get the URL for loading image
+		String  link = fun.Q_mage(question);
+		if(link != null) {
+		//2-getting image from fly
+		URL url = new URL(link);
+		BufferedImage image = ImageIO.read(url);
+		//3-Adjusting the image size
+		Image dimg = image.getScaledInstance(frame.lblNewLabel.getWidth(), frame.lblNewLabel.getHeight(),Image.SCALE_SMOOTH);
+		//4-setting image into the label
+		frame.lblNewLabel.setIcon(new javax.swing.ImageIcon(dimg));
+		
+		}else {
+			frame.lblNewLabel.setIcon(null);
+			
+			
+		}
+		
+		
+	}
+	
 
 	/**
 	 * Create the frame.
@@ -115,14 +187,25 @@ public class Solve_mcqs extends JFrame {
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.window);
 		
-		question = new JLabel("Question");
+		question = new JTextArea("Question");
+		question.setEditable(false);
+		question.setFont(new Font("Tahoma", Font.BOLD, 14));
+		question.setLineWrap(true);
 		option_A = new JLabel("option_a");
 		option_b = new JLabel("optiob_b");
 		option_C = new JLabel("option_c");
 		option_D = new JLabel("option_d");
 		lblNewLabel = new JLabel("");		
-		question.setBackground(SystemColor.activeCaption);		
+		question.setBackground(SystemColor.window);		
 		JScrollPane scrollPane = new JScrollPane();
+		
+		PREVIOUS = new JButton("PREVIOUS");
+
+		PREVIOUS.setBackground(SystemColor.menu);
+		
+		NEXT = new JButton("NEXT");
+		NEXT.setBackground(SystemColor.menu);
+		
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -142,6 +225,12 @@ public class Solve_mcqs extends JFrame {
 					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
 					.addContainerGap())
 				.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 568, Short.MAX_VALUE)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(24)
+					.addComponent(PREVIOUS, GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+					.addGap(76)
+					.addComponent(NEXT, GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+					.addContainerGap())
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -163,7 +252,12 @@ public class Solve_mcqs extends JFrame {
 							.addGap(58)
 							.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.RELATED)))
-					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 241, Short.MAX_VALUE))
+					.addGap(3)
+					.addGroup(gl_panel.createParallelGroup(Alignment.BASELINE)
+						.addComponent(PREVIOUS, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+						.addComponent(NEXT, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
 		);
 		panel.setLayout(gl_panel);
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
