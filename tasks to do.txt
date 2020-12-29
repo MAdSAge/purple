@@ -1,0 +1,7 @@
+well dispalying question completed 
+next 
+
+
+🥱 showing explanation , restricting flow to test mode and learining mode
+🥱 creating temporary json file to track progress
+🥱 passing data between the frames so acces the required values
