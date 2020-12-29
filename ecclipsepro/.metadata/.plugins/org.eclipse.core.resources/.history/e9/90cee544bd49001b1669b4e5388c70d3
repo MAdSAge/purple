@@ -1,0 +1,68 @@
+package practest;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JScrollPane;
+
+public class Solve_mcqs extends JFrame {
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Solve_mcqs frame = new Solve_mcqs();
+					QueryClass get = new QueryClass();
+					ArrayList<quesion_data> listq =get.Q_query("Abdominal cavity and Peritoneum (review)");
+					quesion_data mcq = listq.get(0);
+					String question = mcq.getQuestion();
+					String opt_a = mcq.getOptionA();
+					String opt_b = mcq.getOptionB();
+					String opt_c = mcq.getOptionC();
+					String opt_d = mcq.getOptionD();
+					
+				
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Solve_mcqs() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 686, 618);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 676, Short.MAX_VALUE)
+					.addGap(3))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+					.addGap(1))
+		);
+		getContentPane().setLayout(groupLayout);
+	}
+}

@@ -1,0 +1,122 @@
+package practest;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextArea;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+public class Solve_mcqs extends JFrame {
+
+	private JPanel contentPane;
+	private JTextArea Question_area;
+	private JTextArea option_A;
+	private JTextArea option_B;
+	private JTextArea option_C;
+	private JTextArea option_D;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Solve_mcqs frame = new Solve_mcqs();
+					QueryClass get = new QueryClass();
+					ArrayList<quesion_data> listq =get.Q_query("Abdominal cavity and Peritoneum (review)");
+					quesion_data mcq = listq.get(0);
+					String question = mcq.getQuestion();
+					String opt_a = mcq.getOptionA();
+					String opt_b = mcq.getOptionB();
+					String opt_c = mcq.getOptionC();
+					String opt_d = mcq.getOptionD();
+					
+					frame.setVisible(true);
+					frame.Question_area.setText(question);
+					frame.option_A.setText(opt_a);
+					frame.option_B.setText(opt_b);
+					frame.option_C.setText(opt_c);
+					frame.option_D.setText(opt_d);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Solve_mcqs() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 686, 618);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		Question_area = new JTextArea();
+		Question_area.setLineWrap(true);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\docab\\Downloads\\760ffc50b9064203be4e2dadea394f02.jpg"));
+		
+		option_A = new JTextArea();
+		
+		option_B = new JTextArea();
+		
+		option_C = new JTextArea();
+		
+		option_D = new JTextArea();
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(26)
+							.addComponent(Question_area, GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+							.addGap(32))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(50)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(option_A, GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+								.addComponent(option_B, GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+								.addComponent(option_C, GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
+								.addComponent(option_D, GroupLayout.PREFERRED_SIZE, 273, GroupLayout.PREFERRED_SIZE))
+							.addGap(59)))
+					.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel, GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addComponent(Question_area, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+							.addGap(37)
+							.addComponent(option_A, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(option_B, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(option_C, GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(option_D, GroupLayout.PREFERRED_SIZE, 57, GroupLayout.PREFERRED_SIZE)
+							.addGap(17)))
+					.addGap(176))
+		);
+		
+		
+		contentPane.setLayout(gl_contentPane);
+	}
+}

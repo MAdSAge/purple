@@ -16,7 +16,6 @@
     <fullyQualifiedTypeName name="org.jsoup.select.Elements"/>
     <fullyQualifiedTypeName name="java.nio.file.Path"/>
     <fullyQualifiedTypeName name="java.awt.Dimension"/>
-    <fullyQualifiedTypeName name="javax.swing.border.Border"/>
     <fullyQualifiedTypeName name="javax.swing.border.LineBorder"/>
     <fullyQualifiedTypeName name="practest.QueryClass"/>
     <fullyQualifiedTypeName name="org.jsoup.nodes.Element"/>
@@ -25,4 +24,6 @@
     <fullyQualifiedTypeName name="practest.soup_fun"/>
     <fullyQualifiedTypeName name="practest.quesion_data"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.swing.BorderFactory"/>
+    <fullyQualifiedTypeName name="javax.swing.border.Border"/>
 </qualifiedTypeNameHistroy>

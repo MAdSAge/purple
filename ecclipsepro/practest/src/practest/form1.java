@@ -1,3 +1,4 @@
+//this first set stage
 package practest;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -45,9 +46,9 @@ public class form1 extends JFrame {
 		JButton btnNewButton = new JButton("MCQ's");	
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mcqs hj;
+				Select_a_sub hj;
 				try {
-					hj = new mcqs();
+					hj = new Select_a_sub();
 					hj.setVisible(true);
 				} catch (ClassNotFoundException e1) {
 					// TODO Auto-generated catch block

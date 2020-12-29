@@ -1,14 +1,15 @@
+//select a chapter--
+
 package practest;
 
 import javax.swing.JPanel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import java.awt.BorderLayout;
+
 import javax.swing.JButton;
 import javax.swing.JList;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -20,8 +21,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JScrollPane;
@@ -29,6 +29,10 @@ import javax.swing.JScrollPane;
 public class ChapterFind extends JPanel {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JButton btnNewButton;
 	JList<String> list1;
 
@@ -109,10 +113,10 @@ public class ChapterFind extends JPanel {
 		scrollPane.getVerticalScrollBar().setPreferredSize(new Dimension(0, 0));
 		Border border = new LineBorder(Color.ORANGE, 0, true);
 		scrollPane.setBorder(border);
-		
-	
-		
-				list1.setFont(new Font("Kristen ITC", Font.ITALIC, 14));
+		list1.setFont(new Font("Kristen ITC", Font.ITALIC, 14));
 		setLayout(groupLayout);
+		
+		
+		
 	}
 }

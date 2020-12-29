@@ -1,0 +1,74 @@
+package practest;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import java.awt.SystemColor;
+import java.awt.Color;
+import javax.swing.UIManager;
+import javax.swing.JTextPane;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JEditorPane;
+import javax.swing.JButton;
+
+public class Solve_mcqs extends JFrame {
+
+	private JPanel contentPane;
+	private JButton btnNewButton;
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Solve_mcqs frame = new Solve_mcqs();
+					frame.setVisible(true);
+					frame.btnNewButton.setEnabled(false);
+					
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Solve_mcqs() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 846, 570);
+		contentPane = new JPanel();
+		contentPane.setBackground(UIManager.getColor("CheckBoxMenuItem.background"));
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		btnNewButton = new JButton("New button");
+		
+		btnNewButton.setBackground(SystemColor.window);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(18)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 351, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(453, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(30)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 93, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(400, Short.MAX_VALUE))
+		);
+		contentPane.setLayout(gl_contentPane);
+	}
+}
