@@ -60,19 +60,19 @@ public class Solve_mcqs extends JFrame {
 					
 					
 					
-//01.------------------Instantiating the objects-------------------------------------------------//
+//====>01.------------------Instantiating the objects-------------------------------------------------//
 					Solve_mcqs frame = new Solve_mcqs();
 					soup_fun fun = new soup_fun();
 					QueryClass list = new QueryClass();
-//02.------------------Adjusting the frame-------------------------------------------------------//
+//====>02.------------------Adjusting the frame-------------------------------------------------------//
 					frame.setExtendedState(frame.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 					frame.setVisible(true);					
 					
-//03.------------------Getting the list from the data base---------------------------------------//
+//====>03.------------------Getting the list from the data base---------------------------------------//
 					ArrayList<quesion_data> questions = list.Q_query("Abdominal cavity and Peritoneum (review)");
 					frame.change_question(frame, questions.get(frame.i), fun);
 					
-//04.------------------Setting the NEXT button event to change the question----------------------//
+//====>04.------------------Setting the NEXT button event to change the question----------------------//
 					
 					frame.NEXT.addActionListener(new ActionListener() {
 												
@@ -101,7 +101,7 @@ public class Solve_mcqs extends JFrame {
 						}
 						
 					});
-//05.------------------Setting the PREVIOUS BUTTON event to change the question-------------------//
+//====>05.------------------Setting the PREVIOUS BUTTON event to change the question-------------------//
 					
 					frame.PREVIOUS.addActionListener(new ActionListener() {
 						
@@ -123,8 +123,9 @@ public class Solve_mcqs extends JFrame {
 							
 						}
 					});
-//06.--------------------Checking if the answers is correct after clicking an option-----------------//
-					//for option A------------------------------------------------------------------//
+//====>06.--------------------Checking if the answers is correct after clicking an option-----------------//
+					
+       //-----------------------------------for option A--------------------------------------------------//
 					frame.option_A.addMouseListener(new MouseAdapter() {
 						@Override
 						public void mouseClicked(MouseEvent e) {
@@ -142,7 +143,7 @@ public class Solve_mcqs extends JFrame {
 							
 						}
 					});
-					//for option B--------------------------------------------------------------------//
+       //----------------------------------for option B---------------------------------------------------//
 					frame.option_b.addMouseListener(new MouseAdapter() {
 						@Override
 						public void mouseClicked(MouseEvent e) {
@@ -160,7 +161,7 @@ public class Solve_mcqs extends JFrame {
 							
 						}
 					});
-					//for option C--------------------------------------------------------------------//
+      //------------------------------------------for option C--------------------------------------------//
 					frame.option_C.addMouseListener(new MouseAdapter() {
 						@Override
 						public void mouseClicked(MouseEvent e) {
@@ -178,7 +179,7 @@ public class Solve_mcqs extends JFrame {
 							
 						}
 					});
-					//for option D--------------------------------------------------------------------//
+      //-------------------------------------------for option D-------------------------------------------//
 					frame.option_D.addMouseListener(new MouseAdapter() {
 						@Override
 						public void mouseClicked(MouseEvent e) {
@@ -202,15 +203,13 @@ public class Solve_mcqs extends JFrame {
 					
 										
 
-//07.--------------------adding border to the question and MCQ's-----------------------------------//
+//====>07.--------------------adding border to the question and MCQ's-----------------------------------//
 					Border border = BorderFactory.createLineBorder(Color.BLACK);
 					frame.question.setBorder(border);
 					frame.option_A.setBorder(border);
 					frame.option_b.setBorder(border);
 					frame.option_C.setBorder(border);
 					frame.option_D.setBorder(border);
-//					frame.lblNewLabel.setBorder(border);			
-					
 				} catch (Exception e) {
 					e.printStackTrace();
 				} catch (Throwable e2) {
