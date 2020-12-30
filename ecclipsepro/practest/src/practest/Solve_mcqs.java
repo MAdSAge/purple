@@ -28,6 +28,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Solve_mcqs extends JFrame {
 
@@ -70,11 +72,16 @@ public class Solve_mcqs extends JFrame {
 					ArrayList<quesion_data> questions = list.Q_query("Abdominal cavity and Peritoneum (review)");
 					frame.change_question(frame, questions.get(frame.i), fun);
 					
-//04.------------------setting the NEXT button event to change the question----------------------//
+//04.------------------Setting the NEXT button event to change the question----------------------//
 					
 					frame.NEXT.addActionListener(new ActionListener() {
 												
-						public void actionPerformed(ActionEvent e) {							
+						public void actionPerformed(ActionEvent e) {
+							frame.i=frame.i+1;	
+							frame.option_A.setBackground(null);
+							frame.option_b.setBackground(null);
+							frame.option_C.setBackground(null);
+							frame.option_D.setBackground(null);
 							System.out.println("well it happend");
 							int len = questions.size();
 							System.out.println(len);
@@ -83,7 +90,7 @@ public class Solve_mcqs extends JFrame {
 							
 								
 								frame.change_question(frame, question, fun);
-								frame.i=frame.i+1;	
+								
 								
 							} catch (Throwable e1) {
 								// TODO Auto-generated catch block
@@ -99,6 +106,12 @@ public class Solve_mcqs extends JFrame {
 					frame.PREVIOUS.addActionListener(new ActionListener() {
 						
 						public void actionPerformed(ActionEvent e) {
+							frame.option_A.setBackground(null);
+							frame.option_b.setBackground(null);
+							frame.option_C.setBackground(null);
+							frame.option_D.setBackground(null);
+							
+							frame.i=frame.i-1;
 							System.out.println("well it happend");
 							quesion_data question = questions.get(frame.i);							
 							try {
@@ -107,14 +120,89 @@ public class Solve_mcqs extends JFrame {
 								// TODO Auto-generated catch block
 								e1.printStackTrace();
 							}							
-							frame.i=frame.i-1;
+							
 						}
 					});
+//06.--------------------Checking if the answers is correct after clicking an option-----------------//
+					//for option A------------------------------------------------------------------//
+					frame.option_A.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							String response = frame.option_A.getText();
+							String answer = questions.get(frame.i).getCorrOPT();
+							if(response.equals(answer)) {
+								frame.option_A.setBackground(Color.green);
+								frame.option_A.setOpaque(true); 
+							}else {
+								frame.option_A.setBackground(Color.RED);
+								frame.option_A.setOpaque(true); 
+								
+							}
+							
+							
+						}
+					});
+					//for option B--------------------------------------------------------------------//
+					frame.option_b.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							String response = frame.option_b.getText();
+							String answer = questions.get(frame.i).getCorrOPT();
+							if(response.equals(answer)) {
+								frame.option_b.setBackground(Color.green);
+								frame.option_b.setOpaque(true); 
+							}else {
+								frame.option_b.setBackground(Color.RED);
+								frame.option_b.setOpaque(true); 
+								
+							}
+							
+							
+						}
+					});
+					//for option C--------------------------------------------------------------------//
+					frame.option_C.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							String response = frame.option_C.getText();
+							String answer = questions.get(frame.i).getCorrOPT();
+							if(response.equals(answer)) {
+								frame.option_C.setBackground(Color.green);
+								frame.option_C.setOpaque(true); 
+							}else {
+								frame.option_C.setBackground(Color.RED);
+								frame.option_C.setOpaque(true); 
+								
+							}
+							
+							
+						}
+					});
+					//for option D--------------------------------------------------------------------//
+					frame.option_D.addMouseListener(new MouseAdapter() {
+						@Override
+						public void mouseClicked(MouseEvent e) {
+							String response = frame.option_D.getText();
+							String answer = questions.get(frame.i).getCorrOPT();
+							if(response.equals(answer)) {
+								frame.option_D.setBackground(Color.green);
+								frame.option_D.setOpaque(true); 
+							}else {
+								frame.option_D.setBackground(Color.RED);
+								frame.option_D.setOpaque(true); 
+								
+							}
+							
+							
+						}
+					});
+					
+					
 
 					
 										
 
-//05.--------------------adding border to the question and MCQ's-----------------------------------//
+//07.--------------------adding border to the question and MCQ's-----------------------------------//
 					Border border = BorderFactory.createLineBorder(Color.BLACK);
 					frame.question.setBorder(border);
 					frame.option_A.setBorder(border);
@@ -192,6 +280,7 @@ public class Solve_mcqs extends JFrame {
 		question.setFont(new Font("Tahoma", Font.BOLD, 14));
 		question.setLineWrap(true);
 		option_A = new JLabel("option_a");
+
 		option_b = new JLabel("optiob_b");
 		option_C = new JLabel("option_c");
 		option_D = new JLabel("option_d");

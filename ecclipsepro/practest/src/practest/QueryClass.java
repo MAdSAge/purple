@@ -70,7 +70,7 @@ class QueryClass {
 		c.setAutoCommit(false);
 		stmt = c.createStatement();
 		String d = chapter_name;
-		ResultSet rs = stmt.executeQuery("select * from proper where field7='"+d+"'");
+		ResultSet rs = stmt.executeQuery("select * from proper where field7='"+d+"' order by cast(field1 as int) asc");
 		while (rs.next()) {
 
 			String question = rs.getString(1);
