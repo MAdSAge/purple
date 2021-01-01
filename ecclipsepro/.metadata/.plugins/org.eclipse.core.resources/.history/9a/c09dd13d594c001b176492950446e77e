@@ -1,0 +1,121 @@
+package practest;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+
+public class jsoup_mod {
+	
+	public static void main(String[] arg) {
+		jsoup_mod in = new jsoup_mod();
+		in.pepper();
+	}
+	
+	String pepper() {
+		
+		String exp = "\r\n"
+				+ "<div _ngcontent-c6=\"\" class=\"explanation\">\r\n"
+				+ "        Explanation\r\n"
+				+ "      </div>\r\n"
+				+ "      \r\n"
+				+ "     <div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "        \r\n"
+				+ "\r\n"
+				+ "       <div _ngcontent-c6=\"\" class=\"pearl-table ng-tns-c6-2 ng-star-inserted\"><p>The structures in red are the <strong>tubercles of the iliac crest&nbsp;</strong>and&nbsp;a line through them forms the <strong>trans-tubercular plane</strong>&nbsp;which lies at the <strong>upper border of L5.&nbsp; </strong></p>\r\n"
+				+ "<p>The abdomen is divided into <strong>9 regions</strong> based on the following:</p>\r\n"
+				+ "<ul>\r\n"
+				+ "<li>Two <strong>transverse planes:</strong>\r\n"
+				+ "<ul>\r\n"
+				+ "<li><strong><strong>Subcostal plane </strong></strong>is indicated by a line that joins the lowest point of the costal margin on each side. It corresponds to the level of 10th costal cartilage and third lumbar vertebra&nbsp;<strong>(L3).</strong></li>\r\n"
+				+ "<li><strong>Trans-tubercular</strong>&nbsp;<strong>plane</strong> is&nbsp;indicated by a line that joins the tubercles of the iliac crests. It corresponds to the level of fifth lumbar vertebra&nbsp;<strong>(L5).</strong></li>\r\n"
+				+ "</ul>\r\n"
+				+ "</li>\r\n"
+				+ "<li>Two <strong>vertical planes&nbsp;</strong>on both sides:\r\n"
+				+ "<ul>\r\n"
+				+ "<li><strong>Right </strong>and<strong> left lateral planes</strong> passing from <strong>mid-clavicular</strong>&nbsp;<strong>point</strong> to the <strong>mid-inguinal point.</strong></li>\r\n"
+				+ "</ul>\r\n"
+				+ "</li>\r\n"
+				+ "</ul>\r\n"
+				+ "<p>&nbsp;</p></div>\r\n"
+				+ "      \r\n"
+				+ "      </div><div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "        \r\n"
+				+ "\r\n"
+				+ "        \r\n"
+				+ "        <div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "          \r\n"
+				+ "        </div>\r\n"
+				+ "        \r\n"
+				+ "      </div>\r\n"
+				+ "\r\n"
+				+ "      \r\n"
+				+ "        <div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "          <div _ngcontent-c6=\"\" class=\"ng-tns-c6-2\">\r\n"
+				+ "            <div _ngcontent-c6=\"\" class=\"pull-right\">\r\n"
+				+ "                <pearl-bookmark _ngcontent-c6=\"\" class=\"ng-tns-c6-2\">\r\n"
+				+ "      <a class=\"mcq-save pointer\">\r\n"
+				+ "          <i aria-hidden=\"true\" class=\"fa fa-bookmark ng-star-inserted\"></i>\r\n"
+				+ "          \r\n"
+				+ "      </a>\r\n"
+				+ "      </pearl-bookmark>\r\n"
+				+ "            </div>\r\n"
+				+ "            <h4 _ngcontent-c6=\"\" class=\"ng-tns-c6-2\">\r\n"
+				+ "              <em _ngcontent-c6=\"\" class=\"ng-tns-c6-2\">\r\n"
+				+ "                #<span _ngcontent-c6=\"\" class=\"ng-tns-c6-2\">Pearl 592: Abdominal planes and their landmarks</span>\r\n"
+				+ "              </em>\r\n"
+				+ "            </h4>\r\n"
+				+ "          </div>\r\n"
+				+ "          <div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "            \r\n"
+				+ "            <div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "              <img _ngcontent-c6=\"\" class=\"img-responsive ng-tns-c6-2 ng-star-inserted\" src=\"https://dhmbxeygs57ff.cloudfront.net/uploads/a88621b55cb74393a63f79da3cc57961x1280x2558.JPEG\" width='100'>\r\n"
+				+ "            </div>\r\n"
+				+ "          </div><div _ngcontent-c6=\"\" class=\"ng-tns-c6-2 ng-star-inserted\">\r\n"
+				+ "            <div _ngcontent-c6=\"\" class=\"pearl-table ng-tns-c6-2 ng-star-inserted\"><p><strong>Planes that divide the abdomen into 9 regions</strong></p>\r\n"
+				+ "<ul>\r\n"
+				+ "<li><strong>Horizontal planes</strong>&nbsp;\r\n"
+				+ "<ul>\r\n"
+				+ "<li><strong>L3</strong> - <strong>Subcostal plane</strong> (between 10<sup>th</sup> costal cartilages). Corresponds to the 3<sup>rd</sup> part of the duodenum</li>\r\n"
+				+ "<li><strong>L5</strong> - <strong>Transtubercular plane</strong> (between tubercles of iliac crests). Corresponds to the origin of Inferior vena cava.&nbsp;</li>\r\n"
+				+ "</ul>\r\n"
+				+ "</li>\r\n"
+				+ "<li><strong>Vertical planes</strong>&nbsp;<strong>(Paramedian or lateral planes)</strong>\r\n"
+				+ "<ul>\r\n"
+				+ "<li>Mid-clavicular point to mid-inguinal point on both sides&nbsp;</li>\r\n"
+				+ "</ul>\r\n"
+				+ "</li>\r\n"
+				+ "</ul>\r\n"
+				+ "<p>The&nbsp;<strong>nine regions</strong>&nbsp;of the abdomen include:</p>\r\n"
+				+ "<ul>\r\n"
+				+ "<li>Left hypochondriac, Epigastric, Right hypochondriac</li>\r\n"
+				+ "<li>Left lumbar, Umbilical (Central), Right lumbar</li>\r\n"
+				+ "<li>Left iliac, Hypogastric (Suprapubic), Right iliac</li>\r\n"
+				+ "</ul>\r\n"
+				+ "<p><strong>Other planes and angles in the abdomen</strong></p>\r\n"
+				+ "<ul class=\"ul1\">\r\n"
+				+ "<li class=\"li1\"><strong>Transpyloric (Addison's) plane </strong>passes&nbsp;<strong>midway</strong>&nbsp;between the&nbsp;<strong>suprasternal notch</strong>&nbsp;and the&nbsp;<strong>upper border of the pubic</strong>&nbsp;<strong>symphysis</strong>.</li>\r\n"
+				+ "<li class=\"li1\"><strong>The supracristal plane</strong> passing through the <strong>highest point of the iliac crest</strong> on both sides. Posteriorly, it corresponds to the <strong>level of the L4 body</strong> or L4/5 disc and its spinous process. It is an important landmark when performing a lumbar puncture or spinal injection. The bifurcation of the abdominal aorta lies approximately in this plane.</li>\r\n"
+				+ "<li class=\"li1\">The <strong>plane of the pubic crest</strong>&nbsp;passes through the <strong>upper border of the pubic symphysis</strong>. When supine, this plane intersects the tip of the coccyx and the femoral head.</li>\r\n"
+				+ "<li class=\"li1\"><strong>Renal angle&nbsp;</strong>is the angle between the <strong>12th rib</strong> and the <strong>outer border of Erector spinae muscle</strong>. The lower border of normal kidneys may occasionally be felt here.&nbsp;</li>\r\n"
+				+ "<li class=\"li1\"><strong>Lumbar triangle (of Petit)</strong> is marked below by the <strong>iliac crest</strong>, anteriorly by <strong>external oblique</strong> and posteriorly by <strong>latissimus dorsi</strong>. Lumbar herniation can occur here.&nbsp;</li>\r\n"
+				+ "</ul></div>\r\n"
+				+ "            \r\n"
+				+ "          </div>\r\n"
+				+ "        </div>";
+		Document doc = Jsoup.parse(exp);
+		Element div = doc.select("img").first();
+		String sop = div.attr("src");
+		sop+=" width=100";
+		Element pop = doc.prependElement("img").attr("src", "https://cdn1.dailyrounds.org/uploads/03221c0d0eaf4245bad579b47d636a6c.JPEG");
+
+		System.out.println(pop);
+		
+		
+
+		
+		
+		
+		return null;
+	}
+
+}
