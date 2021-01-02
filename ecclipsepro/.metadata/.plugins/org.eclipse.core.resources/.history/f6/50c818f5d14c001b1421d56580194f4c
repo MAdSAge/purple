@@ -266,9 +266,9 @@ public class Solve_Mcqs extends JFrame {
 		);
 		
 		explanation = new JEditorPane();
-		explanation.set
 		explanation.setBorder(null);
-		
+		HTMLEditorKit kit = new HTMLEditorKit();
+		explanation.setEditorKit(kit);
 		
 		
 		

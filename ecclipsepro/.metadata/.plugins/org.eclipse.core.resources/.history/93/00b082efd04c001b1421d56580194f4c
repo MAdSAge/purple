@@ -2,6 +2,7 @@ package practest;
 
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
@@ -9,6 +10,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.html.CSS;
+import javax.swing.text.html.HTML;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 import javax.swing.JEditorPane;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -266,10 +272,9 @@ public class Solve_Mcqs extends JFrame {
 		);
 		
 		explanation = new JEditorPane();
-		explanation.set
 		explanation.setBorder(null);
-		
-		
+		HTMLEditorKit kit = new HTMLEditorKit();
+		explanation.setEditorKit(kit);
 		
 		
 
@@ -277,7 +282,11 @@ public class Solve_Mcqs extends JFrame {
 		explanation.setEditable(false);
 		scrollPane_1.setViewportView(explanation);
 		scrollPane_1.setBorder(null);
-		
+		StyleSheet styleSheet = kit.getStyleSheet();
+		styleSheet.addRule("body {color:#000; font-family:times; margin: 4px; }");
+		styleSheet.addRule("h1 {color: blue;}");
+		styleSheet.addRule("h2 {color: #ff0000;}");
+		styleSheet.addRule("pre {font : 10px monaco; color : black; background-color : #fafafa; }");
 		
 		
 		JPanel panel = new JPanel();

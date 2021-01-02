@@ -9,6 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.html.CSS;
+import javax.swing.text.html.HTML;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.StyleSheet;
 import javax.swing.JEditorPane;
 import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
@@ -225,6 +230,7 @@ public class Solve_Mcqs extends JFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setViewportBorder(null);
 		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrollPane_1.setViewportBorder(null);
 		
 		Next = new JButton("NEXT");
@@ -266,19 +272,11 @@ public class Solve_Mcqs extends JFrame {
 		);
 		
 		explanation = new JEditorPane();
-		explanation.set
 		explanation.setBorder(null);
-		
-		
-		
-		
-
 		
 		explanation.setEditable(false);
 		scrollPane_1.setViewportView(explanation);
 		scrollPane_1.setBorder(null);
-		
-		
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(SystemColor.window);
